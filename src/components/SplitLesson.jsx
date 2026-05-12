@@ -1,5 +1,12 @@
 import { ChapterDemo } from '../demos/ChapterDemos';
+import { isRichBullet, renderBulletContent } from './lessonBullets';
 import './SplitLesson.css';
+
+function bulletItemKey(chapterSlug, bullet, index) {
+  if (typeof bullet === 'string') return `${chapterSlug}-b-${index}-${bullet.slice(0, 48)}`;
+  if (isRichBullet(bullet)) return `${chapterSlug}-b-${index}-rich`;
+  return `${chapterSlug}-b-${index}`;
+}
 
 export function SplitLesson({ chapter }) {
   const showCode = !chapter.hideCode && chapter.code;
@@ -34,8 +41,8 @@ export function SplitLesson({ chapter }) {
             <section key={sec.title} className="split-lesson__subtheory">
               <h2 className="split-lesson__subtheory-title">{sec.title}</h2>
               <ul>
-                {sec.bullets.map((b) => (
-                  <li key={b}>{b}</li>
+                {sec.bullets.map((b, i) => (
+                  <li key={bulletItemKey(chapter.slug, b, i)}>{renderBulletContent(b)}</li>
                 ))}
               </ul>
             </section>
@@ -47,12 +54,24 @@ export function SplitLesson({ chapter }) {
             Key ideas
           </h2>
           <ul>
-            {chapter.bullets.map((b) => (
-              <li key={b}>{b}</li>
+            {chapter.bullets.map((b, i) => (
+              <li key={bulletItemKey(chapter.slug, b, i)}>{renderBulletContent(b)}</li>
             ))}
           </ul>
         </section>
       )}
+
+      {chapter.analogy ? (
+        <aside className="split-lesson__analogy" aria-label="Real-world analogy">
+          <strong className="split-lesson__callout-label">Idea in plain words.</strong> {chapter.analogy}
+        </aside>
+      ) : null}
+
+      {chapter.commonMistake ? (
+        <aside className="split-lesson__mistake" aria-label="Common beginner mistake">
+          <strong className="split-lesson__callout-label">Watch out.</strong> {chapter.commonMistake}
+        </aside>
+      ) : null}
 
       <div className={showCode ? 'split-lesson__grid' : 'split-lesson__grid split-lesson__grid--single'}>
         <section className="split-lesson__panel split-lesson__panel--preview" aria-labelledby="preview-heading">

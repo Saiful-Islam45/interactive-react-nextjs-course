@@ -1,0 +1,63 @@
+.jargon {
+  position: relative;
+  display: inline;
+  white-space: normal;
+}
+
+.jargon__trigger {
+  margin: 0;
+  padding: 0 0.1em;
+  border: none;
+  border-bottom: 1px dashed color-mix(in srgb, var(--accent) 65%, var(--border));
+  background: color-mix(in srgb, var(--accent) 10%, transparent);
+  color: inherit;
+  font: inherit;
+  font-weight: 600;
+  cursor: help;
+  border-radius: 0.2em;
+}
+
+.jargon__trigger:hover,
+.jargon__trigger:focus-visible {
+  background: color-mix(in srgb, var(--accent) 18%, transparent);
+  outline: none;
+}
+
+.jargon__trigger:focus-visible {
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent) 45%, transparent);
+}
+
+.jargon__tip {
+  position: absolute;
+  left: 0;
+  bottom: calc(100% + 6px);
+  z-index: 5;
+  min-width: min(220px, 70vw);
+  max-width: min(280px, 85vw);
+  padding: 0.45rem 0.55rem;
+  border-radius: 0.45rem;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  font-size: 0.82rem;
+  font-weight: 500;
+  line-height: 1.35;
+  box-shadow: 0 8px 24px color-mix(in srgb, #000 18%, transparent);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.12s ease, visibility 0.12s ease;
+}
+
+.jargon:hover .jargon__tip,
+.jargon:focus-within .jargon__tip {
+  opacity: 1;
+  visibility: visible;
+}
+
+@media (max-width: 600px) {
+  .jargon__tip {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}

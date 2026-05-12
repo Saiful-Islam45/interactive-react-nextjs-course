@@ -95,16 +95,48 @@ export const chapters = [
     phase: 'Phase 1 — React basics',
     number: 1,
     title: 'What is React?',
+    analogy:
+      'React is like a smart whiteboard: you write what should be on the screen. When your data changes, React redraws only what needs to change.',
+    commonMistake:
+      'Do not try to learn every React word on day one. First learn: component, JSX, props, state.',
     relatedDocs: [
       { label: 'Describe the UI (react.dev)', href: 'https://react.dev/learn/describing-the-ui' },
       { label: 'Learn React — start page', href: 'https://react.dev/learn' },
     ],
     bullets: [
-      'React is a library for building user interfaces (what people see and click).',
-      'You describe what should be on the screen. When your data changes, React updates the screen for you.',
-      'You build the app from small pieces called components (like Lego blocks).',
-      'Many React apps are SPAs: one HTML page loads, then JavaScript swaps the “page” without a full reload. That often feels fast.',
-      'React 19 still uses the same big idea: your interface follows your data (especially state, which we learn soon).',
+      {
+        parts: [
+          'React is a ',
+          { term: 'library', definition: 'Ready-made code you add to your project.' },
+          ' for building ',
+          { term: 'UI', definition: 'What people see and click on the screen.' },
+          '.',
+        ],
+      },
+      'You say what should be on the screen. When your data changes, React updates the screen for you.',
+      {
+        parts: [
+          'You build the app from small pieces called ',
+          { term: 'components', definition: 'Small UI blocks you combine like Lego.' },
+          '.',
+        ],
+      },
+      {
+        parts: [
+          'Many React apps are ',
+          { term: 'SPAs', definition: 'Single Page App: one HTML load, then JS swaps views.' },
+          '. They often feel fast.',
+        ],
+      },
+      {
+        parts: [
+          'The big idea stays the same: the ',
+          { term: 'interface', definition: 'The visible screen users interact with.' },
+          ' follows your ',
+          { term: 'data', definition: 'Values in memory, including state soon.' },
+          '.',
+        ],
+      },
     ],
     code: `function HelloReact() {
   const topic = 'React';
@@ -125,18 +157,30 @@ export default HelloReact;`,
     phase: 'Phase 1 — React basics',
     number: 2,
     title: 'Set up your computer (Node, npm, Vite)',
+    analogy:
+      'Node is the engine room. npm is the tool shelf. Vite is a fast workshop door: you change code and see the page update quickly.',
+    commonMistake:
+      'If `npm run dev` fails, check you are inside the project folder (cd my-app). Wrong folder is the top mistake.',
     relatedDocs: [
       { label: 'Installation (react.dev)', href: 'https://react.dev/learn/installation' },
       { label: 'Create a new React app', href: 'https://react.dev/learn/creating-a-react-app' },
     ],
     bullets: [
-      'You need Node.js on your machine. It runs tools like Vite and the package manager.',
-      'npm comes with Node. You use it to install libraries listed in package.json.',
-      'Vite is a modern tool: fast refresh while you code, and a build step for production.',
-      'Most days you only run a few commands: npm install (first time), npm run dev (while coding), npm run build (before ship).',
-      'Create a new app (in terminal): npm create vite@latest my-app -- --template react',
+      {
+        parts: [
+          'You need ',
+          { term: 'Node.js', definition: 'Software that runs JavaScript on your computer.' },
+          '. It runs Vite and ',
+          { term: 'npm', definition: 'Node Package Manager: installs libraries from the internet.' },
+          '.',
+        ],
+      },
+      'npm comes with Node. It installs libraries listed in package.json.',
+      'Vite gives fast refresh while you code, plus a build step for production.',
+      'Daily commands: npm install (first time), npm run dev (while coding), npm run build (before ship).',
+      'Create a new app: npm create vite@latest my-app -- --template react',
       'Then: cd my-app → npm install → npm run dev',
-      'Open the URL Vite prints (often http://localhost:5173). Change App.jsx and watch the page update.',
+      'Open the URL Vite prints (often http://localhost:5173). Edit App.jsx and watch the page update.',
       'If a command fails, read the red text slowly. Often it is a typo, wrong folder, or Node not installed.',
     ],
     challenge: 'Create a new Vite + React app. Change the welcome text. Find vite.config.js and read what is inside.',
@@ -146,21 +190,36 @@ export default HelloReact;`,
     phase: 'Phase 1 — React basics',
     number: 3,
     title: 'What goes in each folder?',
+    analogy:
+      'Folders are like drawers in a desk: one drawer for pens, one for paper. You always know where to look.',
+    commonMistake:
+      'Do not put everything in App.jsx because it feels easy. Split early so the habit sticks.',
     relatedDocs: [
       { label: 'Import and export components', href: 'https://react.dev/learn/importing-and-exporting-components' },
     ],
     bullets: [
-      'Real teams keep folders tidy so anyone can find files. You should practise the same habit.',
+      'Teams keep folders tidy so anyone can find files. Practise the same habit.',
       'src/components — small reusable pieces: buttons, cards, rows.',
-      'src/pages (or screens) — full views for one route, like Home or Tasks.',
-      'src/hooks — shared logic that uses React hooks (we learn this later).',
-      'src/context — shared data for many components (theme, logged-in user).',
-      'src/services or src/api — functions that call the network. Keeps fetch logic away from big JSX files.',
-      'src/layouts — shells used on many pages: top bar, sidebar, footer.',
-      'src/assets — images, fonts.',
-      'src/utils — small pure helpers (format date, sort list) with no UI inside.',
-      'App.jsx — often the root layout and routes. main.jsx — mounts the app into index.html.',
-      'Names can change between companies, but the idea is the same: one job per folder.',
+      'src/pages — full views for one route, like Home or Tasks.',
+      {
+        parts: [
+          'src/hooks — shared logic that uses ',
+          { term: 'hooks', definition: 'Functions like useState that start with use.' },
+          ' (later lessons).',
+        ],
+      },
+      {
+        parts: [
+          'src/context — ',
+          { term: 'context', definition: 'Shared data many components read without long prop chains.' },
+          ' (theme, user).',
+        ],
+      },
+      'src/services or src/api — network calls. Keeps fetch logic out of big JSX files.',
+      'src/layouts — shells: top bar, sidebar, footer.',
+      'src/assets — images, fonts. src/utils — small helpers with no UI.',
+      'App.jsx is often root layout and routes. main.jsx mounts the app into index.html.',
+      'Folder names can change at jobs, but the idea is the same: one job per folder.',
     ],
     challenge: 'On paper, draw a folder map for a simple “TaskFlow” app: pages, components, services.',
   },
@@ -169,15 +228,24 @@ export default HelloReact;`,
     phase: 'Phase 1 — React basics',
     number: 4,
     title: 'JSX — HTML-like code inside JavaScript',
+    analogy:
+      'JSX is like a bilingual sentence: one side looks like HTML, the other side is real JavaScript.',
+    commonMistake:
+      'Do not write class="". In JSX write className="". The word class is reserved in JavaScript.',
     relatedDocs: [
       { label: 'Writing markup with JSX', href: 'https://react.dev/learn/writing-markup-with-jsx' },
     ],
     bullets: [
-      'JSX looks like HTML but it lives inside JavaScript files.',
-      'A component must return one root. If you need two siblings without a wrapper div, use a fragment: <> ... </>.',
-      'Use curly braces { } to put any JavaScript value or expression inside JSX.',
-      'In HTML you write class="". In JSX you write className="" because class is a reserved word in JS.',
-      'You can use if/else, ternary ( ? : ), and && to choose what to show.',
+      {
+        parts: [
+          { term: 'JSX', definition: 'HTML-like syntax inside JavaScript files.' },
+          ' looks like HTML but it lives inside JavaScript.',
+        ],
+      },
+      'A component must return one root. Use a fragment <>...</> if you do not want an extra div.',
+      'Use curly braces { } to put JavaScript values inside JSX.',
+      'In JSX use className, not class.',
+      'Use if/else, ternary (? :), or && to choose what to show.',
     ],
     code: `function Welcome() {
   const hour = new Date().getHours();
@@ -197,16 +265,26 @@ export default HelloReact;`,
     phase: 'Phase 1 — React basics',
     number: 5,
     title: 'Components — break the UI into pieces',
+    analogy:
+      'Components are like LEGO bricks: small, named, and you snap them together to build a big model.',
+    commonMistake:
+      'Do not give two different components the same name in one file. Names must be clear and unique.',
     relatedDocs: [
       { label: 'Your first component', href: 'https://react.dev/learn/your-first-component' },
       { label: 'Passing props to a component', href: 'https://react.dev/learn/passing-props-to-a-component' },
     ],
     bullets: [
-      'A component is usually a function whose name starts with a capital letter.',
-      'It can take inputs called props (like settings for that piece).',
-      'Small components are easier to read, test, and reuse on many pages.',
-      'One big file with 400 lines is hard for you and hard for your team.',
-      'Typical names: Button, Card, TaskRow, Navbar — the name should describe the job.',
+      'A component is usually a function with a capital letter name.',
+      {
+        parts: [
+          'Inputs are called ',
+          { term: 'props', definition: 'Data passed from parent to child, read-only for the child.' },
+          '.',
+        ],
+      },
+      'Small components are easier to read, test, and reuse.',
+      'One huge file is hard for you and hard for your team.',
+      'Good names: Button, Card, TaskRow, Navbar — the name should describe the job.',
     ],
     code: `function Button({ text, variant = 'primary' }) {
   return <button className={variant}>{text}</button>;
@@ -227,13 +305,28 @@ function Toolbar() {
     phase: 'Phase 2 — Layout and look',
     number: 6,
     title: 'Styling in React',
+    analogy:
+      'Global CSS is like house paint for every room. Local CSS is like stickers on one notebook only.',
+    commonMistake:
+      'Do not forget camelCase inside style={{ }}: backgroundColor, not background-color.',
     relatedDocs: [{ label: 'Adding styles', href: 'https://react.dev/learn#adding-styles' }],
     bullets: [
-      'You can use normal CSS files, CSS modules, or utility classes (for example Tailwind) — the team picks one style.',
-      'Global CSS is good for base colours and fonts. Local styles stop parts of the app from fighting each other.',
-      'Inline style={{ }} uses a JavaScript object. Keys are camelCase (backgroundColor).',
-      'Mobile-first means: design the small screen first, then add wider layouts with media queries.',
-      'Design tokens are shared values (main colour, spacing). They keep the product looking consistent.',
+      'You can use plain CSS files, CSS modules, or utilities like Tailwind — the team picks one style.',
+      'Global CSS sets base colours and fonts. Local styles stop parts of the app from fighting.',
+      {
+        parts: [
+          'Inline ',
+          { term: 'style={{ }}', definition: 'A JavaScript object of CSS keys in camelCase.' },
+          ' is fine for small dynamic values.',
+        ],
+      },
+      'Mobile-first: design the small screen first, then add wider layouts with media queries.',
+      {
+        parts: [
+          { term: 'Design tokens', definition: 'Shared values like main colour and spacing.' },
+          ' keep the product consistent.',
+        ],
+      },
     ],
     code: `function Pill({ label, active }) {
   const style = {
@@ -253,13 +346,29 @@ function Toolbar() {
     phase: 'Phase 2 — Layout and look',
     number: 7,
     title: 'Lists and keys',
+    analogy:
+      'Keys are like roll numbers in class: if the teacher sorts the line, roll numbers help know who moved.',
+    commonMistake:
+      'Do not use array index as key when the list can reorder or delete rows. Prefer a stable id from data.',
     relatedDocs: [{ label: 'Rendering lists', href: 'https://react.dev/learn/rendering-lists' }],
     bullets: [
-      'In real apps you often have an array: users, products, tasks.',
-      'You turn the array into JSX with .map(). Each item becomes one row or card.',
-      'Each child in a list needs a stable key. Prefer id from the server, not the array index.',
-      'Why keys matter: React uses them to know which row moved, was added, or was removed.',
-      'If the list is empty, show a friendly message (“No tasks yet”) instead of a blank hole.',
+      'Real apps often have arrays: users, products, tasks.',
+      {
+        parts: [
+          'Turn the array into JSX with ',
+          { term: '.map()', definition: 'Array method: make a new array, one JSX item per row.' },
+          '.',
+        ],
+      },
+      {
+        parts: [
+          'Each list child needs a stable ',
+          { term: 'key', definition: 'Helps React match old and new rows when the list changes.' },
+          '. Prefer id from the server.',
+        ],
+      },
+      'Keys help React know which row moved, was added, or was removed.',
+      'If the list is empty, show a short message (“No tasks yet”), not a blank area.',
     ],
     code: `function TaskList({ tasks }) {
   return (
@@ -277,13 +386,17 @@ function Toolbar() {
     phase: 'Phase 2 — Layout and look',
     number: 8,
     title: 'Show different UI for different situations',
+    analogy:
+      'Your UI is like traffic lights: green for success, yellow for wait, red for error — users need a clear signal.',
+    commonMistake:
+      'Do not only build the happy path. If you forget loading and error states, users see a frozen screen.',
     relatedDocs: [{ label: 'Conditional rendering', href: 'https://react.dev/learn/conditional-rendering' }],
     bullets: [
       'Users see loading, errors, empty data, and success. Plan all of them.',
-      'You can use if / else early return, ternary (a ? b : c), or && for small things.',
-      'Loading: spinner or “Please wait…”. Error: clear message and maybe a retry button.',
-      'If the JSX gets messy, move the condition into a variable or a small helper function above return.',
-      'Good apps never leave people staring at a white box with no explanation.',
+      'Use if/else early return, ternary (? :), or && for small branches.',
+      'Loading: spinner or “Please wait…”. Error: clear message and maybe retry.',
+      'If JSX gets messy, move the condition into a variable above return.',
+      'Never leave people staring at a white box with no explanation.',
     ],
     code: `function AuthBanner({ user, status }) {
   if (status === 'loading') {
@@ -299,13 +412,29 @@ function Toolbar() {
     phase: 'Phase 3 — Clicks, typing, and state',
     number: 9,
     title: 'Events — clicks, typing, submit',
+    analogy:
+      'Events are like doorbells: the visitor presses the bell, then you (your handler function) open the door.',
+    commonMistake:
+      'Do not write onClick={handleClick()}. Use onClick={handleClick} so React calls it later, not now.',
     relatedDocs: [{ label: 'Responding to events', href: 'https://react.dev/learn/responding-to-events' }],
     bullets: [
-      'React uses camelCase names: onClick, onChange, onSubmit.',
-      'Your handler is a normal function. React calls it when the event happens.',
+      {
+        parts: [
+          'React uses ',
+          { term: 'camelCase', definition: 'Words stuckLikeThis; first word lower case.' },
+          ' names: onClick, onChange, onSubmit.',
+        ],
+      },
+      {
+        parts: [
+          'Your ',
+          { term: 'handler', definition: 'A function you write; React runs it when the event fires.' },
+          ' is normal JavaScript.',
+        ],
+      },
       'For inputs, event.target.value is the current text.',
-      'For forms, onSubmit on the <form> runs when user presses Enter in a field or clicks submit — remember preventDefault() so the page does not reload.',
-      'Give handlers clear names: handleChange, handleSubmit — your future self will thank you.',
+      'On forms use onSubmit and event.preventDefault() so the page does not reload.',
+      'Name handlers clearly: handleChange, handleSubmit.',
     ],
     code: `function SearchBar() {
   const handleChange = (event) => {
@@ -321,13 +450,27 @@ function Toolbar() {
     phase: 'Phase 3 — Clicks, typing, and state',
     number: 10,
     title: 'useState — memory for one component',
+    analogy:
+      'State is like a sticky note on one component: only that component owns the note until you lift it up later.',
+    commonMistake:
+      'Never write count = count + 1 to update state. Always use setCount. Direct assignment does not refresh the UI.',
     relatedDocs: [{ label: "State: a component's memory", href: 'https://react.dev/learn/state-a-components-memory' }],
     bullets: [
-      'State is data that can change. When it changes, React draws the component again.',
-      'useState gives you [value, setValue]. Always update with setValue — do not change the old value by hand.',
-      'If the new value depends on the old one (like count + 1), use the form: setCount((prev) => prev + 1).',
-      'Arrays and objects: do not push or mutate in place. Copy, then change (spread [...arr], map, filter).',
-      'You will use useState again and again: toggles, form fields, open/closed menus, filters.',
+      {
+        parts: [
+          { term: 'State', definition: 'Data that can change; when it changes, React re-renders.' },
+          ' lives inside a component until you move it to a parent.',
+        ],
+      },
+      {
+        parts: [
+          { term: 'useState', definition: 'Hook that returns [value, setter].' },
+          ' gives [value, setValue]. Always update with the setter.',
+        ],
+      },
+      'If the next value needs the old value, use setCount((prev) => prev + 1).',
+      'Do not mutate arrays or objects in place. Copy first (spread, map, filter).',
+      'You will use useState for toggles, form fields, menus, filters.',
     ],
     code: `import { useState } from 'react';
 
@@ -350,15 +493,24 @@ function Counter() {
     phase: 'Phase 3 — Clicks, typing, and state',
     number: 11,
     title: 'Share one state with many children (lift state up)',
+    analogy:
+      'Lifting state is like moving the shared TV remote to the parent’s hand so both children change the same channel.',
+    commonMistake:
+      'Do not keep two copies of the same data in two children. One source of truth should live in the parent.',
     relatedDocs: [
       { label: 'Sharing data between components', href: 'https://react.dev/learn/sharing-data-between-components' },
     ],
     bullets: [
-      'Sometimes two buttons (or two cards) must show the same number. If each child has its own useState, the numbers do not stay in sync.',
-      'Fix: keep the data in the parent. Pass the value down with props. Pass the updater down as a prop too (for example onClick or handleClick).',
-      'Props flow down. The child calls your function. The parent runs setState. Then both children get new props.',
-      'This pattern is called "lifting state up". It is the normal way to share data between sibling components.',
-      'If a prop name looks like a DOM event name (for example onClick), that is fine — it is just a prop on your own component.',
+      'Two buttons may need the same count. Separate useState in each child will not stay in sync.',
+      'Fix: store data in the parent. Pass value down with props. Pass the updater as a prop too.',
+      {
+        parts: [
+          { term: 'Props', definition: 'Data passed down from parent to child.' },
+          ' flow down. The child calls your function. The parent runs setState.',
+        ],
+      },
+      'This pattern is called lifting state up. It is normal for sibling components.',
+      'A prop named onClick is still just a prop on your component, not magic.',
     ],
     code: `import { useState } from 'react';
 
@@ -393,13 +545,21 @@ export default function MyApp() {
     phase: 'Phase 3 — Clicks, typing, and state',
     number: 12,
     title: 'Forms — controlled inputs',
+    analogy:
+      'A controlled input is like a diary with a lock: React holds the only key, not the browser alone.',
+    commonMistake:
+      'Do not mix uncontrolled and controlled for the same input. Pick one pattern and stick to it.',
     relatedDocs: [{ label: 'Reacting to input with state', href: 'https://react.dev/learn/reacting-to-input-with-state' }],
     bullets: [
-      'Controlled input: the input’s value comes from React state, and onChange writes back to state.',
-      'That way React is the single source of truth — not the DOM alone.',
+      {
+        parts: [
+          { term: 'Controlled input', definition: 'Value comes from React state; onChange updates state.' },
+          ': React is the single source of truth.',
+        ],
+      },
       'Trim user text before save. Empty string after trim means “do nothing”.',
-      'Disable the submit button while saving if you want to stop double clicks.',
-      'Later you connect the same pattern to login, search, and “new task” forms.',
+      'Disable submit while saving if you want to stop double clicks.',
+      'Later you reuse this pattern for login, search, and new-task forms.',
     ],
     code: `import { useState } from 'react';
 
@@ -427,15 +587,29 @@ function TaskForm({ onCreate }) {
     phase: 'Phase 3 — Clicks, typing, and state',
     number: 13,
     title: 'useEffect — talk to the world outside React',
+    analogy:
+      'useEffect is like setting an alarm after homework: first paint the UI, then run side work in the background.',
+    commonMistake:
+      'Do not forget the cleanup return for listeners and timers. Without it you get duplicates and leaks.',
     relatedDocs: [{ label: 'Synchronizing with Effects', href: 'https://react.dev/learn/synchronizing-with-effects' }],
     bullets: [
-      'useEffect runs after the screen paints. Use it for things that are not pure UI: timers, subscriptions, fetching data.',
-      'The second argument is the dependency array. [] means “run once when this component mounts”.',
-      '[userId] means “run again when userId changes”.',
-      'Return a cleanup function to remove listeners, clear timers, or ignore old network results.',
-      'Do not put side effects directly in the render body — keep render predictable.',
-      'If ESLint warns about missing dependencies, fix the real bug — do not silence the rule without a reason.',
-      'Beginner mistake: forgetting cleanup → duplicate listeners or memory leaks.',
+      {
+        parts: [
+          { term: 'useEffect', definition: 'Runs after paint; use for timers, listeners, fetch.' },
+          ' runs after the screen paints.',
+        ],
+      },
+      {
+        parts: [
+          'The second argument is the ',
+          { term: 'dependency array', definition: 'List of values; effect re-runs when they change.' },
+          '. [] means run once on mount.',
+        ],
+      },
+      '[userId] means run again when userId changes.',
+      'Return a cleanup function to remove listeners, clear timers, or ignore stale network results.',
+      'Do not put side effects in the render body — keep render predictable.',
+      'If ESLint warns about missing dependencies, fix the bug; do not silence rules without a reason.',
     ],
     code: `import { useEffect, useState } from 'react';
 
