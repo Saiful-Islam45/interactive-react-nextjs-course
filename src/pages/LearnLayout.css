@@ -1,0 +1,17 @@
+.learn-layout {
+  display: flex;
+  align-items: stretch;
+  min-height: calc(100vh - 57px);
+}
+
+.learn-layout__main {
+  flex: 1;
+  min-width: 0;
+  background: var(--bg);
+}
+
+@media (max-width: 900px) {
+  .learn-layout {
+    flex-direction: column;
+  }
+}

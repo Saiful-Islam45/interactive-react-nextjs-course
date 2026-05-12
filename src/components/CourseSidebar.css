@@ -1,0 +1,79 @@
+.course-sidebar {
+  width: min(100%, 280px);
+  border-right: 1px solid var(--border);
+  background: var(--surface-2);
+  padding: 1rem 0.75rem 2rem;
+  overflow-y: auto;
+  max-height: calc(100vh - 56px);
+}
+
+.course-sidebar__eyebrow {
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0.5rem 0.25rem;
+}
+
+.course-sidebar__title {
+  margin: 0 0.5rem 1rem;
+  font-size: 1.1rem;
+}
+
+.course-sidebar__group + .course-sidebar__group {
+  margin-top: 1rem;
+}
+
+.course-sidebar__phase {
+  font-size: 0.72rem;
+  color: var(--muted);
+  margin: 0 0.5rem 0.35rem;
+  line-height: 1.35;
+}
+
+.course-sidebar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.course-sidebar__link {
+  display: flex;
+  gap: 0.5rem;
+  align-items: flex-start;
+  padding: 0.45rem 0.5rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  color: inherit;
+  font-size: 0.88rem;
+  line-height: 1.35;
+}
+
+.course-sidebar__link:hover {
+  background: color-mix(in srgb, var(--text) 5%, transparent);
+}
+
+.course-sidebar__link.active {
+  background: color-mix(in srgb, var(--accent) 22%, transparent);
+  font-weight: 600;
+}
+
+.course-sidebar__num {
+  font-variant-numeric: tabular-nums;
+  color: var(--muted);
+  font-size: 0.78rem;
+  min-width: 1.4rem;
+}
+
+.course-sidebar__label {
+  flex: 1;
+}
+
+@media (max-width: 900px) {
+  .course-sidebar {
+    width: 100%;
+    max-height: none;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+}

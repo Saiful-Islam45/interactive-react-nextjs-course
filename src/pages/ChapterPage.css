@@ -1,0 +1,31 @@
+.chapter-page__pager {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0 1.25rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.chapter-page__pager-link {
+  text-decoration: none;
+  font-weight: 600;
+  color: var(--accent-2);
+}
+
+.chapter-page__pager-link:hover {
+  text-decoration: underline;
+}
+
+.chapter-page__pager-link--next {
+  margin-left: auto;
+}
+
+.chapter-page--empty {
+  padding: 2rem;
+  text-align: center;
+}
+
+.chapter-page--empty a {
+  color: var(--accent-2);
+}

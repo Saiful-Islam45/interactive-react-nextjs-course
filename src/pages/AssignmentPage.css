@@ -1,0 +1,62 @@
+.assignment-page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1.5rem 1.25rem 3rem;
+}
+
+.assignment-page__head h1 {
+  margin: 0 0 0.5rem;
+}
+
+.assignment-page__head p {
+  margin: 0;
+  line-height: 1.6;
+  color: color-mix(in srgb, var(--text) 85%, var(--muted));
+}
+
+.assignment-page__list {
+  margin: 2rem 0 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: assign;
+}
+
+.assignment-page__list > li {
+  counter-increment: assign;
+  position: relative;
+  padding: 1.25rem 1rem 1.25rem 3rem;
+  border: 1px solid var(--border);
+  border-radius: 0.9rem;
+  background: var(--surface);
+  margin-bottom: 1rem;
+}
+
+.assignment-page__list > li::before {
+  content: counter(assign, decimal-leading-zero);
+  position: absolute;
+  left: 1rem;
+  top: 1.25rem;
+  font-weight: 800;
+  font-size: 0.85rem;
+  color: var(--accent-2);
+}
+
+.assignment-page__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+}
+
+.assignment-page__list h2 {
+  margin: 0.35rem 0;
+  font-size: 1.1rem;
+}
+
+.assignment-page__task {
+  margin: 0;
+  line-height: 1.55;
+}

@@ -1,0 +1,183 @@
+.split-lesson {
+  padding: 1.25rem 1.25rem 2.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.split-lesson__head h1 {
+  margin: 0.35rem 0 0;
+  font-size: clamp(1.35rem, 2.5vw, 1.75rem);
+  letter-spacing: -0.02em;
+}
+
+.split-lesson__phase {
+  margin: 0;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.split-lesson__hero {
+  margin: 0 0 1.25rem;
+  padding: 0;
+  border-radius: 0.85rem;
+  border: 1px solid var(--border);
+  overflow: hidden;
+  background: var(--surface);
+}
+
+.split-lesson__hero img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: min(420px, 55vh);
+  object-fit: contain;
+  object-position: center top;
+  background: #fff;
+}
+
+@media (prefers-color-scheme: dark) {
+  .split-lesson__hero img {
+    background: #0b1224;
+  }
+}
+
+.split-lesson__hero figcaption {
+  padding: 0.65rem 0.85rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+  line-height: 1.45;
+  border-top: 1px solid var(--border);
+  background: var(--surface-2);
+}
+
+.split-lesson__sections {
+  margin: 0 0 1.5rem;
+}
+
+.split-lesson__subtheory {
+  margin-top: 1.25rem;
+}
+
+.split-lesson__subtheory:first-child {
+  margin-top: 0;
+}
+
+.split-lesson__subtheory-title {
+  margin: 0 0 0.45rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--text);
+}
+
+.split-lesson__subtheory ul {
+  margin: 0;
+  padding-left: 1.1rem;
+  color: color-mix(in srgb, var(--text) 88%, var(--muted));
+  line-height: 1.55;
+}
+
+.split-lesson__subtheory li + li {
+  margin-top: 0.3rem;
+}
+
+.split-lesson__theory ul {
+  margin: 1rem 0 1.5rem;
+  padding-left: 1.1rem;
+  color: color-mix(in srgb, var(--text) 88%, var(--muted));
+  line-height: 1.55;
+}
+
+.split-lesson__theory li + li {
+  margin-top: 0.35rem;
+}
+
+.split-lesson__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  align-items: stretch;
+}
+
+.split-lesson__grid--single {
+  grid-template-columns: 1fr;
+}
+
+.split-lesson__grid--single .split-lesson__panel--preview {
+  min-height: 0;
+}
+
+.split-lesson__panel {
+  border: 1px solid var(--border);
+  border-radius: 0.85rem;
+  background: var(--surface);
+  display: flex;
+  flex-direction: column;
+  min-height: 280px;
+  overflow: hidden;
+}
+
+.split-lesson__panel-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.65rem 0.85rem;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface-2);
+}
+
+.split-lesson__panel-head h2 {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.split-lesson__tag {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--accent-2);
+}
+
+.split-lesson__preview {
+  padding: 1rem;
+  flex: 1;
+}
+
+.split-lesson__code {
+  margin: 0;
+  padding: 1rem;
+  flex: 1;
+  overflow: auto;
+  font-size: 0.78rem;
+  line-height: 1.45;
+  background: #0b1224;
+  color: #e2e8f0;
+}
+
+.split-lesson__challenge {
+  margin-top: 1.25rem;
+  padding: 0.85rem 1rem;
+  border-radius: 0.75rem;
+  border: 1px dashed color-mix(in srgb, var(--accent) 45%, var(--border));
+  background: color-mix(in srgb, var(--accent) 8%, var(--surface));
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 960px) {
+  .split-lesson__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
