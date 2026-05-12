@@ -80,6 +80,21 @@ export function SplitLesson({ chapter }) {
         ) : null}
       </div>
 
+      {chapter.relatedDocs?.length ? (
+        <footer className="split-lesson__docs" aria-label="Official React documentation">
+          <p className="split-lesson__docs-title">Also read on react.dev</p>
+          <ul className="split-lesson__docs-list">
+            {chapter.relatedDocs.map((d) => (
+              <li key={d.href}>
+                <a href={d.href} target="_blank" rel="noopener noreferrer">
+                  {d.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </footer>
+      ) : null}
+
       {chapter.challenge ? (
         <aside className="split-lesson__challenge">
           <strong>Mini challenge.</strong> {chapter.challenge}

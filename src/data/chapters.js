@@ -95,6 +95,10 @@ export const chapters = [
     phase: 'Phase 1 — React basics',
     number: 1,
     title: 'What is React?',
+    relatedDocs: [
+      { label: 'Describe the UI (react.dev)', href: 'https://react.dev/learn/describing-the-ui' },
+      { label: 'Learn React — start page', href: 'https://react.dev/learn' },
+    ],
     bullets: [
       'React is a library for building user interfaces (what people see and click).',
       'You describe what should be on the screen. When your data changes, React updates the screen for you.',
@@ -121,6 +125,10 @@ export default HelloReact;`,
     phase: 'Phase 1 — React basics',
     number: 2,
     title: 'Set up your computer (Node, npm, Vite)',
+    relatedDocs: [
+      { label: 'Installation (react.dev)', href: 'https://react.dev/learn/installation' },
+      { label: 'Create a new React app', href: 'https://react.dev/learn/creating-a-react-app' },
+    ],
     bullets: [
       'You need Node.js on your machine. It runs tools like Vite and the package manager.',
       'npm comes with Node. You use it to install libraries listed in package.json.',
@@ -138,6 +146,9 @@ export default HelloReact;`,
     phase: 'Phase 1 — React basics',
     number: 3,
     title: 'What goes in each folder?',
+    relatedDocs: [
+      { label: 'Import and export components', href: 'https://react.dev/learn/importing-and-exporting-components' },
+    ],
     bullets: [
       'Real teams keep folders tidy so anyone can find files. You should practise the same habit.',
       'src/components — small reusable pieces: buttons, cards, rows.',
@@ -158,6 +169,9 @@ export default HelloReact;`,
     phase: 'Phase 1 — React basics',
     number: 4,
     title: 'JSX — HTML-like code inside JavaScript',
+    relatedDocs: [
+      { label: 'Writing markup with JSX', href: 'https://react.dev/learn/writing-markup-with-jsx' },
+    ],
     bullets: [
       'JSX looks like HTML but it lives inside JavaScript files.',
       'A component must return one root. If you need two siblings without a wrapper div, use a fragment: <> ... </>.',
@@ -183,6 +197,10 @@ export default HelloReact;`,
     phase: 'Phase 1 — React basics',
     number: 5,
     title: 'Components — break the UI into pieces',
+    relatedDocs: [
+      { label: 'Your first component', href: 'https://react.dev/learn/your-first-component' },
+      { label: 'Passing props to a component', href: 'https://react.dev/learn/passing-props-to-a-component' },
+    ],
     bullets: [
       'A component is usually a function whose name starts with a capital letter.',
       'It can take inputs called props (like settings for that piece).',
@@ -209,6 +227,7 @@ function Toolbar() {
     phase: 'Phase 2 — Layout and look',
     number: 6,
     title: 'Styling in React',
+    relatedDocs: [{ label: 'Adding styles', href: 'https://react.dev/learn#adding-styles' }],
     bullets: [
       'You can use normal CSS files, CSS modules, or utility classes (for example Tailwind) — the team picks one style.',
       'Global CSS is good for base colours and fonts. Local styles stop parts of the app from fighting each other.',
@@ -234,6 +253,7 @@ function Toolbar() {
     phase: 'Phase 2 — Layout and look',
     number: 7,
     title: 'Lists and keys',
+    relatedDocs: [{ label: 'Rendering lists', href: 'https://react.dev/learn/rendering-lists' }],
     bullets: [
       'In real apps you often have an array: users, products, tasks.',
       'You turn the array into JSX with .map(). Each item becomes one row or card.',
@@ -257,6 +277,7 @@ function Toolbar() {
     phase: 'Phase 2 — Layout and look',
     number: 8,
     title: 'Show different UI for different situations',
+    relatedDocs: [{ label: 'Conditional rendering', href: 'https://react.dev/learn/conditional-rendering' }],
     bullets: [
       'Users see loading, errors, empty data, and success. Plan all of them.',
       'You can use if / else early return, ternary (a ? b : c), or && for small things.',
@@ -278,6 +299,7 @@ function Toolbar() {
     phase: 'Phase 3 — Clicks, typing, and state',
     number: 9,
     title: 'Events — clicks, typing, submit',
+    relatedDocs: [{ label: 'Responding to events', href: 'https://react.dev/learn/responding-to-events' }],
     bullets: [
       'React uses camelCase names: onClick, onChange, onSubmit.',
       'Your handler is a normal function. React calls it when the event happens.',
@@ -299,6 +321,7 @@ function Toolbar() {
     phase: 'Phase 3 — Clicks, typing, and state',
     number: 10,
     title: 'useState — memory for one component',
+    relatedDocs: [{ label: "State: a component's memory", href: 'https://react.dev/learn/state-a-components-memory' }],
     bullets: [
       'State is data that can change. When it changes, React draws the component again.',
       'useState gives you [value, setValue]. Always update with setValue — do not change the old value by hand.',
@@ -323,10 +346,54 @@ function Counter() {
     challenge: 'Store a list of task titles in state. Add a button that adds one fake task each click.',
   },
   {
-    slug: 'ch-11',
+    slug: 'ch-10-lifting-state',
     phase: 'Phase 3 — Clicks, typing, and state',
     number: 11,
+    title: 'Share one state with many children (lift state up)',
+    relatedDocs: [
+      { label: 'Sharing data between components', href: 'https://react.dev/learn/sharing-data-between-components' },
+    ],
+    bullets: [
+      'Sometimes two buttons (or two cards) must show the same number. If each child has its own useState, the numbers do not stay in sync.',
+      'Fix: keep the data in the parent. Pass the value down with props. Pass the updater down as a prop too (for example onClick or handleClick).',
+      'Props flow down. The child calls your function. The parent runs setState. Then both children get new props.',
+      'This pattern is called "lifting state up". It is the normal way to share data between sibling components.',
+      'If a prop name looks like a DOM event name (for example onClick), that is fine — it is just a prop on your own component.',
+    ],
+    code: `import { useState } from 'react';
+
+function MyButton({ count, onClick }) {
+  return (
+    <button type="button" onClick={onClick}>
+      Clicked {count} times
+    </button>
+  );
+}
+
+export default function MyApp() {
+  const [count, setCount] = useState(0);
+
+  function handleClick() {
+    setCount((c) => c + 1);
+  }
+
+  return (
+    <div>
+      <h1>Counters that update together</h1>
+      <MyButton count={count} onClick={handleClick} />
+      <MyButton count={count} onClick={handleClick} />
+    </div>
+  );
+}`,
+    challenge:
+      'On paper, draw three boxes: Parent (state) → Left child (props) → Right child (props). Add one arrow for props down and one for "event up".',
+  },
+  {
+    slug: 'ch-11',
+    phase: 'Phase 3 — Clicks, typing, and state',
+    number: 12,
     title: 'Forms — controlled inputs',
+    relatedDocs: [{ label: 'Reacting to input with state', href: 'https://react.dev/learn/reacting-to-input-with-state' }],
     bullets: [
       'Controlled input: the input’s value comes from React state, and onChange writes back to state.',
       'That way React is the single source of truth — not the DOM alone.',
@@ -358,8 +425,9 @@ function TaskForm({ onCreate }) {
   {
     slug: 'ch-12',
     phase: 'Phase 3 — Clicks, typing, and state',
-    number: 12,
+    number: 13,
     title: 'useEffect — talk to the world outside React',
+    relatedDocs: [{ label: 'Synchronizing with Effects', href: 'https://react.dev/learn/synchronizing-with-effects' }],
     bullets: [
       'useEffect runs after the screen paints. Use it for things that are not pure UI: timers, subscriptions, fetching data.',
       'The second argument is the dependency array. [] means “run once when this component mounts”.',
@@ -387,7 +455,7 @@ function WindowWidth() {
   {
     slug: 'ch-13',
     phase: 'Phase 4 — TaskFlow-style app',
-    number: 13,
+    number: 14,
     title: 'How to organise a bigger project',
     bullets: [
       'When the app grows, random file names hurt everyone. Think in features: tasks, auth, settings.',
@@ -402,7 +470,7 @@ function WindowWidth() {
   {
     slug: 'ch-14',
     phase: 'Phase 4 — TaskFlow-style app',
-    number: 14,
+    number: 15,
     title: 'Load data from the internet',
     bullets: [
       'Browsers load data with fetch or libraries like axios. Both use Promises (async/await).',
@@ -440,7 +508,7 @@ function RemoteTodos() {
   {
     slug: 'ch-15',
     phase: 'Phase 4 — TaskFlow-style app',
-    number: 15,
+    number: 16,
     title: 'React Router — URLs inside a SPA',
     bullets: [
       'Each URL can show a different main component: /home, /tasks, /login.',
@@ -470,7 +538,7 @@ function Shell() {
   {
     slug: 'ch-16',
     phase: 'Phase 4 — TaskFlow-style app',
-    number: 16,
+    number: 17,
     title: 'Context — share data without passing props through every layer',
     bullets: [
       'When many deep children need the same thing (theme, language, current user), passing props through every level is tiring. That is called “prop drilling”.',
@@ -496,7 +564,7 @@ export const useTheme = () => useContext(ThemeContext);`,
   {
     slug: 'ch-17',
     phase: 'Phase 4 — TaskFlow-style app',
-    number: 17,
+    number: 18,
     title: 'useReducer — many updates in one place',
     bullets: [
       'When several pieces of state change together (wizard steps, big task board), many useState calls get noisy.',
@@ -527,7 +595,7 @@ function Board() {
   {
     slug: 'ch-18',
     phase: 'Phase 5 — Going deeper',
-    number: 18,
+    number: 19,
     title: 'Custom hooks — reuse logic',
     bullets: [
       'If two screens share the same useState + useEffect pattern, copy-paste is risky.',
@@ -549,7 +617,7 @@ export function useCounter(initial = 0) {
   {
     slug: 'ch-19',
     phase: 'Phase 5 — Going deeper',
-    number: 19,
+    number: 20,
     title: 'Speed — when to optimise',
     bullets: [
       'React is already fast for many apps. Do not wrap everything in memo on day one.',
@@ -565,7 +633,7 @@ export function useCounter(initial = 0) {
   {
     slug: 'ch-20',
     phase: 'Phase 5 — Going deeper',
-    number: 20,
+    number: 21,
     title: 'When something breaks — error boundaries',
     bullets: [
       'Sometimes a component throws during render. Without a boundary, the whole app can go white.',
@@ -595,7 +663,7 @@ export class ErrorBoundary extends Component {
   {
     slug: 'ch-21',
     phase: 'Phase 5 — Going deeper',
-    number: 21,
+    number: 22,
     title: 'React 19 helpers — smoother saves and typing',
     bullets: [
       'useTransition lets you mark some updates as “can wait”. The UI stays responsive for typing and clicks.',
@@ -609,7 +677,7 @@ export class ErrorBoundary extends Component {
   {
     slug: 'ch-22',
     phase: 'Phase 6 — Ready to ship',
-    number: 22,
+    number: 23,
     title: 'Login and protected pages',
     bullets: [
       'Most apps: guest → logging in → logged in (or session expired). Think in those steps.',
@@ -631,7 +699,7 @@ function Protected({ user, children }) {
   {
     slug: 'ch-23',
     phase: 'Phase 6 — Ready to ship',
-    number: 23,
+    number: 24,
     title: 'Environment variables (Vite)',
     bullets: [
       'Different machines need different API URLs. You put them in .env files.',
@@ -646,7 +714,7 @@ function Protected({ user, children }) {
   {
     slug: 'ch-24',
     phase: 'Phase 6 — Ready to ship',
-    number: 24,
+    number: 25,
     title: 'Reusable buttons and inputs',
     bullets: [
       'A design system is a shared set of small pieces: Button, Input, Modal shell.',
@@ -664,7 +732,7 @@ function Protected({ user, children }) {
   {
     slug: 'ch-25',
     phase: 'Phase 6 — Ready to ship',
-    number: 25,
+    number: 26,
     title: 'Clean code habits',
     bullets: [
       'Use full words in names: taskCount not tc — you will read this code for months.',
@@ -679,7 +747,7 @@ function Protected({ user, children }) {
   {
     slug: 'ch-26',
     phase: 'Phase 6 — Ready to ship',
-    number: 26,
+    number: 27,
     title: 'Testing the UI',
     bullets: [
       'React Testing Library asks: what does the user see and click? Not: what is inside component.state?',
@@ -702,7 +770,7 @@ test('calls handler on click', () => {
   {
     slug: 'ch-27',
     phase: 'Phase 6 — Ready to ship',
-    number: 27,
+    number: 28,
     title: 'Build and deploy',
     bullets: [
       'npm run build creates a dist/ folder with static files you can host anywhere.',

@@ -19,7 +19,7 @@ export function AppHeader() {
         </span>
         <span>
           <strong>Reactor</strong>
-          <small>React 19 · TaskFlow curriculum</small>
+          <small>React 19 · beginner path · TaskFlow examples</small>
         </span>
       </NavLink>
       <nav className="app-header__nav" aria-label="Primary">
@@ -27,7 +27,7 @@ export function AppHeader() {
           Home
         </NavLink>
         <NavLink to={`/learn/${learnEntry}`} className={({ isActive }) => (isActive || learnActive ? active : base)}>
-          Learn React
+          Learn
         </NavLink>
         <NavLink to="/assignment" className={({ isActive }) => (isActive ? active : base)}>
           Assignment
