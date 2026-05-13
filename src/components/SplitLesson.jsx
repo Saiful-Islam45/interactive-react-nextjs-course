@@ -1,8 +1,10 @@
 import { ChapterDemo } from '../demos/ChapterDemos';
+import { NextTopicDemo } from '../demos/NextTopicDemos';
 import './SplitLesson.css';
 
 export function SplitLesson({ chapter }) {
   const showCode = !chapter.hideCode && chapter.code;
+  const isNextTrack = chapter.track === 'nextjs' || chapter.track === 'nextjs-lab';
 
   return (
     <article className="split-lesson">
@@ -12,6 +14,10 @@ export function SplitLesson({ chapter }) {
           {chapter.navLabel ? (
             <>
               Warm-up {chapter.navLabel} — {chapter.title}
+            </>
+          ) : chapter.lessonKind ? (
+            <>
+              {chapter.lessonKind} {chapter.number}: {chapter.title}
             </>
           ) : (
             <>
@@ -54,16 +60,37 @@ export function SplitLesson({ chapter }) {
         </section>
       )}
 
+      {isNextTrack && chapter.docUrl ? (
+        <aside className="split-lesson__reference" aria-label="Optional reference">
+          <span className="split-lesson__reference-label">Optional reference — </span>
+          <a href={chapter.docUrl} target="_blank" rel="noopener noreferrer">
+            {chapter.track === 'nextjs-lab' ? 'extra reading on learn.nextjs.org' : 'extra reading on nextjs.org'}
+          </a>
+        </aside>
+      ) : null}
+
       <div className={showCode ? 'split-lesson__grid' : 'split-lesson__grid split-lesson__grid--single'}>
         <section className="split-lesson__panel split-lesson__panel--preview" aria-labelledby="preview-heading">
           <div className="split-lesson__panel-head">
-            <h2 id="preview-heading">{chapter.hideCode ? 'Small example (click)' : 'Live UI'}</h2>
+            <h2 id="preview-heading">
+              {chapter.track === 'nextjs-lab' ? 'Lab mini map' : chapter.hideCode ? 'Small example (click)' : 'Live UI'}
+            </h2>
             <span className="split-lesson__tag">
-              {chapter.hideCode ? 'No code — read and click' : chapter.navLabel ? 'Story + play' : 'Interactive'}
+              {chapter.track === 'nextjs-lab'
+                ? 'Do steps in your Next repo'
+                : chapter.hideCode
+                  ? 'No code — read and click'
+                  : chapter.navLabel
+                    ? 'Story + play'
+                    : 'Interactive'}
             </span>
           </div>
           <div className="split-lesson__preview">
-            <ChapterDemo slug={chapter.slug} />
+            {isNextTrack ? (
+              <NextTopicDemo slug={chapter.slug} docUrl={chapter.docUrl} panelTitle={chapter.title} />
+            ) : (
+              <ChapterDemo slug={chapter.slug} />
+            )}
           </div>
         </section>
 

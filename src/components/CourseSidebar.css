@@ -16,8 +16,21 @@
 }
 
 .course-sidebar__title {
-  margin: 0 0.5rem 1rem;
+  margin: 0 0.5rem 0.5rem;
   font-size: 1.1rem;
+}
+
+.course-sidebar__hint {
+  margin: 0 0.5rem 1rem;
+  font-size: 0.75rem;
+  line-height: 1.4;
+  color: var(--muted);
+}
+
+.course-sidebar__hint a {
+  color: var(--accent);
+  font-weight: 600;
+  word-break: break-word;
 }
 
 .course-sidebar__group + .course-sidebar__group {

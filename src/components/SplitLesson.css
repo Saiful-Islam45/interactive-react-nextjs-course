@@ -16,6 +16,26 @@
   color: var(--muted);
 }
 
+.split-lesson__reference {
+  margin: 1rem 0 0;
+  padding: 0.65rem 0.85rem;
+  font-size: 0.82rem;
+  color: var(--muted);
+  border: 1px dashed var(--border);
+  border-radius: 0.5rem;
+  background: color-mix(in srgb, var(--surface) 88%, var(--surface-2));
+}
+
+.split-lesson__reference-label {
+  font-weight: 600;
+  color: var(--text);
+}
+
+.split-lesson__reference a {
+  color: var(--accent);
+  font-weight: 600;
+}
+
 .split-lesson__hero {
   margin: 0 0 1.25rem;
   padding: 0;
