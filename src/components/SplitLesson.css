@@ -92,6 +92,35 @@
   margin-top: 0.35rem;
 }
 
+.split-lesson__analogy,
+.split-lesson__mistake {
+  margin: 1rem 0 0;
+  padding: 0.75rem 1rem;
+  border-radius: 0.75rem;
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+.split-lesson__analogy {
+  border: 1px solid color-mix(in srgb, #38bdf8 35%, var(--border));
+  background: color-mix(in srgb, #38bdf8 10%, var(--surface));
+}
+
+.split-lesson__mistake {
+  border: 1px solid color-mix(in srgb, #f59e0b 40%, var(--border));
+  background: color-mix(in srgb, #f59e0b 10%, var(--surface));
+}
+
+.split-lesson__callout-label {
+  display: inline;
+  margin-right: 0.35rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+}
+
 .split-lesson__grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -163,6 +192,40 @@
   background: color-mix(in srgb, var(--accent) 8%, var(--surface));
   font-size: 0.9rem;
   line-height: 1.5;
+}
+
+.split-lesson__docs {
+  margin-top: 1.25rem;
+  padding: 0.75rem 1rem;
+  border-radius: 0.75rem;
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+}
+
+.split-lesson__docs-title {
+  margin: 0 0 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+}
+
+.split-lesson__docs-list {
+  margin: 0;
+  padding-left: 1.1rem;
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+.split-lesson__docs-list a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.split-lesson__docs-list a:hover {
+  text-decoration-thickness: 2px;
 }
 
 @media (max-width: 960px) {

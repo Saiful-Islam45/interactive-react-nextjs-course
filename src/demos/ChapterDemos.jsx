@@ -379,6 +379,12 @@ export function ChapterDemo({ slug }) {
           <CounterInner />
         </DemoCard>
       );
+    case 'ch-10-lifting-state':
+      return (
+        <DemoCard title="Lifted state — two buttons, one count">
+          <LiftStateDemo />
+        </DemoCard>
+      );
     case 'ch-11':
       return (
         <DemoCard title="Controlled task form">
@@ -507,6 +513,32 @@ function CounterInner() {
       <button type="button" className="demo-btn demo-btn--primary" onClick={() => setCount((c) => c + 1)}>
         Increase
       </button>
+    </div>
+  );
+}
+
+function MyButton({ count, onClick }) {
+  return (
+    <button type="button" className="demo-btn demo-btn--ghost" onClick={onClick}>
+      Clicked {count} times
+    </button>
+  );
+}
+
+function LiftStateDemo() {
+  const [count, setCount] = useState(0);
+
+  function handleClick() {
+    setCount((c) => c + 1);
+  }
+
+  return (
+    <div>
+      <p className="demo-muted">State lives in the parent. Both buttons read the same props.</p>
+      <div className="demo-row">
+        <MyButton count={count} onClick={handleClick} />
+        <MyButton count={count} onClick={handleClick} />
+      </div>
     </div>
   );
 }

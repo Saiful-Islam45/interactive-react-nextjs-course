@@ -11,8 +11,8 @@ export function CourseSidebar() {
 
   return (
     <aside className="course-sidebar" aria-label="Course chapters">
-      <p className="course-sidebar__eyebrow">TaskFlow track</p>
-      <h2 className="course-sidebar__title">Lectures</h2>
+      <p className="course-sidebar__eyebrow">Curriculum · same order as react.dev Learn</p>
+      <h2 className="course-sidebar__title">Lessons</h2>
       {Object.entries(groups).map(([phase, items]) => (
         <div key={phase} className="course-sidebar__group">
           <p className="course-sidebar__phase">{phase}</p>

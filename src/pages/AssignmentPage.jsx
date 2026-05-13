@@ -5,10 +5,10 @@ export function AssignmentPage() {
   return (
     <div className="assignment-page">
       <header className="assignment-page__head">
-        <h1>Assignments & mini challenges</h1>
+        <h1>Assignments and mini challenges</h1>
         <p>
-          Each lecture ends with a bite-sized TaskFlow-related challenge. Treat them like spaced repetition: small
-          wins stack into production confidence.
+          Each lesson ends with a small task. Do them in order. Short answers are fine. This helps you remember ideas
+          when you build the TaskFlow-style app later.
         </p>
       </header>
 
