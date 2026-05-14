@@ -40,7 +40,7 @@ export function HomePage() {
               Start from Phase 0
             </Link>
             <Link to="/assignment" className="home-btn home-btn--ghost">
-              See all mini challenges
+              KenaKata capstone brief
             </Link>
             <a href={REACT_LEARN} className="home-btn home-btn--ghost" rel="noreferrer noopener" target="_blank">
               Read react.dev Learn
@@ -89,7 +89,8 @@ export function HomePage() {
             <li>Use the <strong>Live UI</strong> panel. Click and type so you connect ideas to what you see.</li>
             <li>Do the <strong>mini challenge</strong> at the end. Keep answers short. Small wins add up.</li>
             <li>
-              Open the <Link to="/assignment">Assignments</Link> page when you want every challenge in one list.
+              Open the <Link to="/assignment">Capstone assignment</Link> page for the KenaKata Next.js storefront brief;
+              each lesson still has its own short warm-up at the end.
             </li>
           </ol>
         </div>
