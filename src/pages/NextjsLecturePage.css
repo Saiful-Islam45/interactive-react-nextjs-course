@@ -1,0 +1,30 @@
+.nextjs-lecture-page__article {
+  padding-top: 1.25rem;
+  padding-bottom: 0.5rem;
+}
+
+.nextjs-lecture-page__head {
+  max-width: 52rem;
+  margin: 0 auto;
+  padding: 0 1.25rem 0.25rem;
+}
+
+.nextjs-lecture-page__phase {
+  margin: 0;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.nextjs-lecture-page__title {
+  margin: 0.35rem 0 0.5rem;
+  font-size: clamp(1.35rem, 2.5vw, 1.75rem);
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+}
+
+.nextjs-lecture-page__lead {
+  margin: 0 0 0.5rem;
+  font-size: 1.02rem;
+  color: var(--muted);
+  line-height: 1.55;
+}
