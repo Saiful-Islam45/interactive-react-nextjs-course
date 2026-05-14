@@ -1,0 +1,118 @@
+.nextjs-lesson-body {
+  max-width: 52rem;
+  margin: 0 auto;
+  padding: 0 1.25rem 1.5rem;
+}
+
+.nextjs-lesson-body__h2 {
+  font-size: 1.2rem;
+  margin: 1.75rem 0 0.65rem;
+  line-height: 1.35;
+  color: var(--text);
+}
+
+.nextjs-lesson-body__h2:first-child {
+  margin-top: 0;
+}
+
+.nextjs-lesson-body__h3 {
+  font-size: 1.02rem;
+  font-weight: 600;
+  margin: 1.1rem 0 0.45rem;
+  line-height: 1.35;
+  color: var(--text);
+}
+
+.nextjs-lesson-body__p {
+  margin: 0 0 0.85rem;
+  color: var(--text);
+  line-height: 1.65;
+}
+
+.nextjs-lesson-body__ul,
+.nextjs-lesson-body__ol {
+  margin: 0 0 1rem;
+  padding-left: 1.35rem;
+  line-height: 1.6;
+  color: var(--text);
+}
+
+.nextjs-lesson-body__ul li,
+.nextjs-lesson-body__ol li {
+  margin-bottom: 0.35rem;
+}
+
+.nextjs-lesson-body__table-wrap {
+  overflow-x: auto;
+  margin: 0 0 1.25rem;
+  border-radius: 0.65rem;
+  border: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.nextjs-lesson-body__table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.nextjs-lesson-body__table th,
+.nextjs-lesson-body__table td {
+  padding: 0.55rem 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+
+.nextjs-lesson-body__table th {
+  background: color-mix(in srgb, var(--surface-2) 80%, var(--surface));
+  font-weight: 600;
+  color: var(--text);
+}
+
+.nextjs-lesson-body__table tr:last-child td {
+  border-bottom: none;
+}
+
+/* Code block: clear “code area” look */
+.nextjs-lesson-body__pre {
+  margin: 0 0 1.25rem;
+  padding: 1rem 1.1rem;
+  border-radius: 0.65rem;
+  border: 1px solid var(--border);
+  background: color-mix(in srgb, var(--surface-2) 92%, var(--surface));
+  box-shadow: inset 0 1px 0 color-mix(in srgb, var(--text) 4%, transparent);
+  overflow-x: auto;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 0.82rem;
+  line-height: 1.55;
+  tab-size: 2;
+}
+
+.nextjs-lesson-body__pre code {
+  font-family: inherit;
+  color: var(--text);
+  white-space: pre;
+  display: block;
+}
+
+.nextjs-lesson-body__callout {
+  margin: 0 0 1.1rem;
+  padding: 0.85rem 1rem;
+  border-radius: 0.6rem;
+  border: 1px solid var(--border);
+  line-height: 1.55;
+}
+
+.nextjs-lesson-body__callout--tip {
+  background: color-mix(in srgb, var(--accent) 12%, var(--surface));
+  border-color: color-mix(in srgb, var(--accent) 35%, var(--border));
+}
+
+.nextjs-lesson-body__callout--note {
+  background: var(--surface-2);
+}
+
+.nextjs-lesson-body__callout-label {
+  color: var(--accent-2);
+}

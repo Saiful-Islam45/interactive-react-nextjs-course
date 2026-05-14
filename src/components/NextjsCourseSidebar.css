@@ -1,0 +1,70 @@
+.nextjs-course-sidebar {
+  width: min(100%, 280px);
+  border-right: 1px solid var(--border);
+  background: var(--surface-2);
+  padding: 1rem 0.75rem 2rem;
+  overflow-y: auto;
+  max-height: calc(100vh - 56px);
+}
+
+.nextjs-course-sidebar__eyebrow {
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0.5rem 0.25rem;
+}
+
+.nextjs-course-sidebar__title {
+  margin: 0 0.5rem 1rem;
+  font-size: 1.1rem;
+}
+
+.nextjs-course-sidebar__group + .nextjs-course-sidebar__group {
+  margin-top: 1rem;
+}
+
+.nextjs-course-sidebar__phase {
+  font-size: 0.72rem;
+  color: var(--muted);
+  margin: 0 0.5rem 0.35rem;
+  line-height: 1.35;
+}
+
+.nextjs-course-sidebar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nextjs-course-sidebar__link {
+  display: block;
+  padding: 0.45rem 0.5rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  color: inherit;
+  font-size: 0.88rem;
+  line-height: 1.35;
+}
+
+.nextjs-course-sidebar__link:hover {
+  background: color-mix(in srgb, var(--text) 5%, transparent);
+}
+
+.nextjs-course-sidebar__link.active {
+  background: color-mix(in srgb, var(--accent) 22%, transparent);
+  font-weight: 600;
+}
+
+.nextjs-course-sidebar__label {
+  display: block;
+}
+
+@media (max-width: 900px) {
+  .nextjs-course-sidebar {
+    width: 100%;
+    max-height: none;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+}
