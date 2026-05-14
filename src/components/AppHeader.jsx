@@ -12,7 +12,8 @@ const active = 'app-header__link is-active';
 export function AppHeader() {
   const { pathname } = useLocation();
   const learnActive = pathname.startsWith('/learn');
-  const nextjsActive = pathname.startsWith('/nextjs');
+  const nextjsActive = pathname.startsWith('/nextjs') && !pathname.startsWith('/nextjs-lab');
+  const nextjsLabActive = pathname.startsWith('/nextjs-lab');
 
   return (
     <header className="app-header">
@@ -37,6 +38,9 @@ export function AppHeader() {
           className={({ isActive }) => (isActive || nextjsActive ? active : base)}
         >
           Learn Next.js
+        </NavLink>
+        <NavLink to="/nextjs-lab" className={({ isActive }) => (isActive || nextjsLabActive ? active : base)}>
+          Next.js Lab
         </NavLink>
         <NavLink to="/assignment" className={({ isActive }) => (isActive ? active : base)}>
           Assignment

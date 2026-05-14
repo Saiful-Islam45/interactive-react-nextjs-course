@@ -1,0 +1,84 @@
+.nextjs-lab-labs-hub {
+  padding: 1.25rem 1.25rem 2.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.nextjs-lab-labs-hub__head h1 {
+  margin: 0.25rem 0 0.5rem;
+  font-size: clamp(1.35rem, 2.4vw, 1.75rem);
+}
+
+.nextjs-lab-labs-hub__eyebrow {
+  margin: 0;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.nextjs-lab-labs-hub__lead {
+  margin: 0 0 1.25rem;
+  line-height: 1.55;
+  color: color-mix(in srgb, var(--text) 88%, var(--muted));
+  max-width: 78ch;
+}
+
+.nextjs-lab-labs-hub__grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.nextjs-lab-labs-hub__card {
+  border: 1px solid var(--border);
+  border-radius: 0.9rem;
+  padding: 1rem 1.05rem 1.1rem;
+  background: var(--surface);
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.nextjs-lab-labs-hub__card h2 {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.nextjs-lab-labs-hub__card p {
+  margin: 0;
+  flex: 1;
+  line-height: 1.5;
+  color: color-mix(in srgb, var(--text) 90%, var(--muted));
+}
+
+.nextjs-lab-labs-hub__phase {
+  margin: 0;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.nextjs-lab-labs-hub__steps {
+  margin: 0;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--accent-2);
+}
+
+.nextjs-lab-labs-hub__cta {
+  margin-top: 0.35rem;
+  display: inline-flex;
+  align-self: flex-start;
+  padding: 0.45rem 0.85rem;
+  border-radius: 0.55rem;
+  font-weight: 700;
+  text-decoration: none;
+  color: #fff;
+  background: linear-gradient(135deg, #38bdf8, #6366f1);
+}
+
+.nextjs-lab-labs-hub__cta:hover {
+  filter: brightness(1.05);
+}

@@ -1,0 +1,50 @@
+.nextjs-lab-lab-page {
+  padding: 1.25rem 1.25rem 2.5rem;
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+.nextjs-lab-lab-page__head h1 {
+  margin: 0.25rem 0 0.5rem;
+  font-size: clamp(1.25rem, 2.2vw, 1.65rem);
+}
+
+.nextjs-lab-lab-page__eyebrow {
+  margin: 0;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.nextjs-lab-lab-page__lead {
+  margin: 0 0 1rem;
+  line-height: 1.55;
+  color: color-mix(in srgb, var(--text) 88%, var(--muted));
+}
+
+.nextjs-lab-lab-page__pager {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1.25rem;
+}
+
+.nextjs-lab-lab-page__link {
+  text-decoration: none;
+  font-weight: 700;
+  color: var(--accent-2);
+}
+
+.nextjs-lab-lab-page__link--next {
+  margin-left: auto;
+}
+
+.nextjs-lab-lab-page--empty {
+  text-align: center;
+  padding: 2rem;
+}
+
+.nextjs-lab-lab-page--empty a {
+  color: var(--accent-2);
+}
