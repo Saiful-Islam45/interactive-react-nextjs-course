@@ -1,0 +1,131 @@
+.nextjs-lab-dashboard {
+  padding: 1.5rem 1.25rem 3rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.nextjs-lab-dashboard__hero {
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  padding: 1.25rem 1.35rem 1.5rem;
+  background: var(--surface);
+  box-shadow: 0 18px 45px color-mix(in srgb, var(--text) 6%, transparent);
+}
+
+.nextjs-lab-dashboard__kicker {
+  margin: 0 0 0.35rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.nextjs-lab-dashboard__title {
+  margin: 0 0 0.5rem;
+  font-size: clamp(1.45rem, 2.6vw, 2rem);
+  line-height: 1.15;
+}
+
+.nextjs-lab-dashboard__lead {
+  margin: 0 0 1rem;
+  color: color-mix(in srgb, var(--text) 88%, var(--muted));
+  line-height: 1.6;
+  max-width: 78ch;
+}
+
+.nextjs-lab-dashboard__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.nextjs-lab-dashboard__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.55rem 0.95rem;
+  border-radius: 0.65rem;
+  border: 1px solid var(--border);
+  text-decoration: none;
+  font-weight: 700;
+  color: inherit;
+  background: var(--surface-2);
+}
+
+.nextjs-lab-dashboard__btn:hover {
+  border-color: color-mix(in srgb, var(--accent) 45%, var(--border));
+}
+
+.nextjs-lab-dashboard__btn--primary {
+  border: none;
+  color: #fff;
+  background: linear-gradient(135deg, #38bdf8, #6366f1);
+}
+
+.nextjs-lab-dashboard__grid {
+  margin-top: 1.25rem;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.nextjs-lab-dashboard__card {
+  border: 1px solid var(--border);
+  border-radius: 0.85rem;
+  padding: 1rem 1.05rem 1.1rem;
+  background: color-mix(in srgb, var(--surface) 88%, var(--surface-2));
+}
+
+.nextjs-lab-dashboard__card h2 {
+  margin: 0 0 0.45rem;
+  font-size: 1.05rem;
+}
+
+.nextjs-lab-dashboard__card p {
+  margin: 0;
+  line-height: 1.55;
+  color: color-mix(in srgb, var(--text) 90%, var(--muted));
+}
+
+.nextjs-lab-dashboard__stats {
+  margin: 0;
+  padding-left: 1.1rem;
+  line-height: 1.55;
+}
+
+.nextjs-lab-dashboard__steps {
+  margin: 0;
+  padding-left: 1.1rem;
+  line-height: 1.55;
+}
+
+.nextjs-lab-dashboard__steps li + li {
+  margin-top: 0.35rem;
+}
+
+.nextjs-lab-dashboard__phases {
+  margin-top: 1.5rem;
+}
+
+.nextjs-lab-dashboard__phases h2 {
+  margin: 0 0 0.65rem;
+}
+
+.nextjs-lab-dashboard__phase-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.nextjs-lab-dashboard__phase-chip {
+  border-radius: 0.75rem;
+  border: 1px solid var(--border);
+  padding: 0.55rem 0.75rem;
+  background: var(--surface-2);
+  font-size: 0.85rem;
+}
+
+.nextjs-lab-dashboard__phase-chip p {
+  margin: 0;
+  line-height: 1.35;
+}

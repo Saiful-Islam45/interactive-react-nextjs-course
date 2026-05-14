@@ -1,0 +1,75 @@
+.nextjs-lab-lecture-list {
+  padding: 1.25rem 1.25rem 2.5rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.nextjs-lab-lecture-list__head h1 {
+  margin: 0.25rem 0 0.5rem;
+  font-size: clamp(1.35rem, 2.4vw, 1.75rem);
+}
+
+.nextjs-lab-lecture-list__eyebrow {
+  margin: 0;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.nextjs-lab-lecture-list__lead {
+  margin: 0 0 1.25rem;
+  line-height: 1.55;
+  color: color-mix(in srgb, var(--text) 88%, var(--muted));
+  max-width: 70ch;
+}
+
+.nextjs-lab-lecture-list__phase h2 {
+  margin: 1.25rem 0 0.5rem;
+  font-size: 1rem;
+  color: var(--muted);
+}
+
+.nextjs-lab-lecture-list__phase ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  overflow: hidden;
+  background: var(--surface);
+}
+
+.nextjs-lab-lecture-list__phase li + li {
+  border-top: 1px solid var(--border);
+}
+
+.nextjs-lab-lecture-list__link {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 0.65rem;
+  align-items: center;
+  padding: 0.75rem 0.9rem;
+  text-decoration: none;
+  color: inherit;
+}
+
+.nextjs-lab-lecture-list__link:hover {
+  background: color-mix(in srgb, var(--accent) 8%, var(--surface));
+}
+
+.nextjs-lab-lecture-list__num {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.nextjs-lab-lecture-list__title {
+  font-weight: 650;
+}
+
+.nextjs-lab-lecture-list__chev {
+  color: var(--accent-2);
+  font-weight: 700;
+}

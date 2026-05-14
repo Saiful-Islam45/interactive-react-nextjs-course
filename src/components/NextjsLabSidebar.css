@@ -1,0 +1,112 @@
+.nextjs-lab-sidebar {
+  width: min(100%, 300px);
+  border-right: 1px solid var(--border);
+  background: linear-gradient(180deg, color-mix(in srgb, var(--accent) 8%, var(--surface-2)), var(--surface-2));
+  padding: 1rem 0.75rem 2rem;
+  overflow-y: auto;
+  max-height: calc(100vh - 56px);
+}
+
+.nextjs-lab-sidebar__eyebrow {
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0.5rem 0.25rem;
+}
+
+.nextjs-lab-sidebar__title {
+  margin: 0 0.5rem 0.75rem;
+  font-size: 1.15rem;
+}
+
+.nextjs-lab-sidebar__primary {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin: 0 0 1rem;
+}
+
+.nextjs-lab-sidebar__pill {
+  display: block;
+  padding: 0.55rem 0.65rem;
+  border-radius: 0.55rem;
+  text-decoration: none;
+  color: inherit;
+  font-weight: 600;
+  font-size: 0.88rem;
+  border: 1px solid transparent;
+  background: color-mix(in srgb, var(--surface) 55%, transparent);
+}
+
+.nextjs-lab-sidebar__pill:hover {
+  border-color: var(--border);
+}
+
+.nextjs-lab-sidebar__pill.is-active {
+  border-color: color-mix(in srgb, var(--accent) 45%, var(--border));
+  background: color-mix(in srgb, var(--accent) 16%, var(--surface));
+}
+
+.nextjs-lab-sidebar__section--only {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: none;
+}
+
+.nextjs-lab-sidebar__section-title {
+  margin: 0 0.5rem 0.5rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.nextjs-lab-sidebar__group + .nextjs-lab-sidebar__group {
+  margin-top: 0.85rem;
+}
+
+.nextjs-lab-sidebar__phase {
+  font-size: 0.72rem;
+  color: var(--muted);
+  margin: 0 0.5rem 0.35rem;
+  line-height: 1.35;
+}
+
+.nextjs-lab-sidebar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nextjs-lab-sidebar__link {
+  display: block;
+  padding: 0.4rem 0.5rem;
+  border-radius: 0.45rem;
+  text-decoration: none;
+  color: inherit;
+  font-size: 0.84rem;
+  line-height: 1.35;
+}
+
+.nextjs-lab-sidebar__link:hover {
+  background: color-mix(in srgb, var(--text) 5%, transparent);
+}
+
+.nextjs-lab-sidebar__link.active {
+  background: color-mix(in srgb, var(--accent) 22%, transparent);
+  font-weight: 600;
+}
+
+.nextjs-lab-sidebar__label {
+  display: block;
+}
+
+@media (max-width: 900px) {
+  .nextjs-lab-sidebar {
+    width: 100%;
+    max-height: none;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+}
